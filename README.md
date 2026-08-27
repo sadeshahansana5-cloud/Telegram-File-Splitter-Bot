@@ -94,12 +94,12 @@ export BOT_TOKEN="your_bot_token"
 ```bash
 docker build -t telegram-splitter-bot .
 
-docker run -d \
-  -e API_ID="$API_ID" \
-  -e API_HASH="$API_HASH" \
-  -e BOT_TOKEN="$BOT_TOKEN" \
-  -p 7860:7860 \
-  --name splitter-bot \
+docker run -d \\
+  -e API_ID="$API_ID" \\
+  -e API_HASH="$API_HASH" \\
+  -e BOT_TOKEN="$BOT_TOKEN" \\
+  -p 7860:7860 \\
+  --name splitter-bot \\
   telegram-splitter-bot
 ```
 
@@ -117,41 +117,21 @@ docker logs -f splitter-bot
 
 Send `/start` to your bot on Telegram.
 
-<p align="center">
-  <img src="https://i.imgur.com/placeholder1.png" width="400" alt="Start Command">
-</p>
-
 ### 2. Send Your File
 
 Send any file (up to 4GB) to the bot.
-
-<p align="center">
-  <img src="https://i.imgur.com/placeholder2.png" width="400" alt="Send File">
-</p>
 
 ### 3. Choose Split Size
 
 Click either **500MB Parts** or **1GB Parts** button.
 
-<p align="center">
-  <img src="https://i.imgur.com/placeholder3.png" width="400" alt="Choose Size">
-</p>
-
 ### 4. Wait for Processing
 
 Watch the live progress with speed and ETA.
 
-<p align="center">
-  <img src="https://i.imgur.com/placeholder4.png" width="400" alt="Progress">
-</p>
-
 ### 5. Download Parts
 
 Receive all parts and extract with **7-Zip** or **WinRAR**.
-
-<p align="center">
-  <img src="https://i.imgur.com/placeholder5.png" width="400" alt="Download Parts">
-</p>
 
 ---
 
