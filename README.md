@@ -59,7 +59,50 @@ Go to **Settings > Secrets and variables > Actions > New repository secret** and
   <img src="https://docs.github.com/assets/cb-11477/images/help/repository/actions-secrets-tab.png" width="600" alt="Secrets Setup">
 </p>
 
-#### Step 3: Run the Workflow
+#### Step 3: Create Workflow File
+
+Create `.github/workflows/run-bot.yml` and paste this code:
+
+```yaml
+name: Run Telegram Splitter Bot
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🐳 Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 🔧 Build Docker Image
+        run: |
+          docker build -t telegram-splitter-bot .
+
+      - name: 🚀 Run Bot Container
+        run: |
+          docker run -d \
+            --name splitter-bot \
+            -p 7860:7860 \
+            telegram-splitter-bot
+
+      - name: ⏳ Wait & Check Logs
+        run: |
+          sleep 10
+          echo "=== BOT LOGS ==="
+          docker logs splitter-bot
+          echo "================"
+          echo "Bot is running... Keeping workflow alive for 6 hours"
+          sleep 21600
+
+```
+
+#### Step 4: Run the Workflow
 
 1. Go to the **Actions** tab
 2. Click **"Run Telegram Splitter Bot"**
@@ -117,21 +160,41 @@ docker logs -f splitter-bot
 
 Send `/start` to your bot on Telegram.
 
+<p align="center">
+  <img src="https://i.imgur.com/placeholder1.png" width="400" alt="Start Command">
+</p>
+
 ### 2. Send Your File
 
 Send any file (up to 4GB) to the bot.
+
+<p align="center">
+  <img src="https://i.imgur.com/placeholder2.png" width="400" alt="Send File">
+</p>
 
 ### 3. Choose Split Size
 
 Click either **500MB Parts** or **1GB Parts** button.
 
+<p align="center">
+  <img src="https://i.imgur.com/placeholder3.png" width="400" alt="Choose Size">
+</p>
+
 ### 4. Wait for Processing
 
 Watch the live progress with speed and ETA.
 
+<p align="center">
+  <img src="https://i.imgur.com/placeholder4.png" width="400" alt="Progress">
+</p>
+
 ### 5. Download Parts
 
 Receive all parts and extract with **7-Zip** or **WinRAR**.
+
+<p align="center">
+  <img src="https://i.imgur.com/placeholder5.png" width="400" alt="Download Parts">
+</p>
 
 ---
 
