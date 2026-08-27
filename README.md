@@ -248,7 +248,7 @@ This project is licensed under the **MIT License**.
 
 <div align="center">
 
-### Made with ❤️ for Telegram Users
+### Made with ❤️ for Sadesha
 
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=18&duration=2000&pause=500&color=F75C7E&center=true&vCenter=true&width=400&lines=Happy+Splitting!;Enjoy+the+Bot!;Share+with+Friends!" alt="Closing Animation">
