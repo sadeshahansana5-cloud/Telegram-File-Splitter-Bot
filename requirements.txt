@@ -1,0 +1,8 @@
+pyrogram==2.0.106
+tgcrypto==1.2.5
+flask
+aiohttp
+fastapi
+uvicorn
+huggingface_hub
+aiofiles
